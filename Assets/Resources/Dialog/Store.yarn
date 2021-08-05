@@ -1,0 +1,41 @@
+﻿title: welcome
+tags:
+---
+Welcome to my <i>Secret Shop</i>!
+<<finish>>
+===
+title: instruction
+tags:
+---
+It is {$item_name}!
+{$instruction}
+===
+title: bid
+tags:
+---
+<<if $count > 1>>
+{$count} {$item_name} costs {$price}.
+Would you like to buy it?
+<<else>>
+{$count} {$item_name}s cost {$price}.
+Would you like to buy them?
+<<endif>>
+<<if $deposit >= $price>>
+[[Yes|success]]
+[[No|failed]]
+<<else>>
+But you have no enough money...
+[[failed]]
+<<endif>>
+===
+title: success
+tags:
+---
+<<bargain>>
+Thank you for your patronage!
+===
+title: failed
+tags:
+---
+You can come back later.
+===

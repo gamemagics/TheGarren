@@ -11,11 +11,18 @@ public class DialogueController : MonoBehaviour {
     [SerializeField] private DialogueUI dialogueUI;
 
     [SerializeField] private UnityEvent skipHandler;
-    private bool isOptionsDisplayed = false;
 
     void Awake() {
-        StorePrologueEvent.prologueEvent.AddListener(() => {
-            runner.StartDialogue();
+        StoreEvents.prologueEvent.AddListener(() => {
+            runner.StartDialogue("welcome");
+        });
+
+        StoreEvents.instructionEvent.AddListener((Dictionary<string, string> data) => {
+            runner.variableStorage.SetValue("$id", data["ID"]);
+            runner.variableStorage.SetValue("$item_name", data["name"]);
+            runner.variableStorage.SetValue("$instruction", data["desc"]);
+            runner.variableStorage.SetValue("$price", int.Parse(data["price"]));
+            runner.StartDialogue("instruction");
         });
     }
 
@@ -26,9 +33,5 @@ public class DialogueController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         skipHandler?.Invoke();
-    }
-
-    public void EnableOptions(bool flag) {
-        isOptionsDisplayed = flag;
     }
 }

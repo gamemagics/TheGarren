@@ -1,41 +1,36 @@
-﻿title: welcome
+title: welcome
 tags:
 ---
-Welcome to my <i>Secret Shop</i>!
+Welcome to my <i>Secret Shop</i>! @line:09d7221
 <<finish>>
 ===
 title: instruction
 tags:
 ---
-It is {$item_name}!
-{$instruction}
-===
-title: bid
-tags:
----
-<<if $count > 1>>
-{$count} {$item_name} costs {$price}.
-Would you like to buy it?
+It is {$item_name} ! @line:0f280be
+{$instruction} @line:04eb7dd
+<<if $price > 1>>
+It costs {$price} golds. @line:04b5775
 <<else>>
-{$count} {$item_name}s cost {$price}.
-Would you like to buy them?
+It costs {$price} gold. @line:04b5776
 <<endif>>
 <<if $deposit >= $price>>
-[[Yes|success]]
-[[No|failed]]
+Would you like to buy it? @line:0a75480
+[[Yes|success]] @line:03a8bd9
+[[No|failed]] @line:0ba4b6a
 <<else>>
-But you have no enough money...
+But you have no enough money... @line:03911d0
 [[failed]]
 <<endif>>
 ===
 title: success
 tags:
 ---
-<<bargain>>
-Thank you for your patronage!
+<<clinch {$id} {$price}>>
+Thank you for your patronage! @line:000ac3c
 ===
 title: failed
 tags:
 ---
-You can come back later.
+You can come back later. @line:09537e1
 ===

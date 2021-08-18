@@ -721,11 +721,16 @@ PrefabInstance:
     - target: {fileID: 5966379729943010404, guid: ff69b410381fee74f884cad42eb6051c,
         type: 3}
       propertyPath: startNode
-      value: welcome
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5966379729943010404, guid: ff69b410381fee74f884cad42eb6051c,
         type: 3}
       propertyPath: startAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966379729943010404, guid: ff69b410381fee74f884cad42eb6051c,
+        type: 3}
+      propertyPath: yarnScripts.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5966379729943010404, guid: ff69b410381fee74f884cad42eb6051c,
@@ -1675,6 +1680,7 @@ GameObject:
   - component: {fileID: 1495994872}
   - component: {fileID: 1495994871}
   - component: {fileID: 1495994874}
+  - component: {fileID: 1495994875}
   m_Layer: 0
   m_Name: Store
   m_TagString: Untagged
@@ -1696,7 +1702,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 1495994872}
   runner: {fileID: 938533692}
-  dialogueUI: {fileID: 1603575264}
 --- !u!95 &1495994872
 Animator:
   serializedVersion: 3
@@ -1749,18 +1754,23 @@ MonoBehaviour:
   deposit: 10
   textComponent: {fileID: 209330226}
   runner: {fileID: 938533692}
---- !u!114 &1603575264 stripped
+--- !u!114 &1495994875
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5966379730377594140, guid: ff69b410381fee74f884cad42eb6051c,
-    type: 3}
-  m_PrefabInstance: {fileID: 566485784}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1495994870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04317fce65da54f4997a5c4465b4e93c, type: 3}
+  m_Script: {fileID: 11500000, guid: a7cf4d7a67007d84d8aed12e5fc323c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startNode: welcome
+  runner: {fileID: 938533692}
+  script: {fileID: 2480198943629176163, guid: 481f3299f8a31cf45a5dfe36743fd56d, type: 3}
+  enableDialogue: 1
+  stateMachine: {fileID: 1495994872}
 --- !u!1 &1677145373
 GameObject:
   m_ObjectHideFlags: 0

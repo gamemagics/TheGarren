@@ -8,7 +8,6 @@ public class StoreCommands : MonoBehaviour {
     [SerializeField] private Animator stateMachine;
 
     [SerializeField] private DialogueRunner runner;
-    [SerializeField] private DialogueUI dialogueUI;
     void Awake() {
         runner.AddCommandHandler("finish", Finish);
         runner.AddCommandHandler("clinch", Clinch);
@@ -23,8 +22,6 @@ public class StoreCommands : MonoBehaviour {
     private void Clinch(string[] parameters) {
         int id = int.Parse(parameters[0]);
         int price = int.Parse(parameters[1]);
-
-        Debug.LogFormat("bargain id: {0}, price: {1}", id, price);
 
         StoreEvents.bargainEvent.Invoke(new KeyValuePair<int, int>(id, price));
         StoreEvents.newItemEvent.Invoke(id);

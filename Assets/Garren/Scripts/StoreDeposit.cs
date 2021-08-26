@@ -16,7 +16,7 @@ public class StoreDeposit : MonoBehaviour {
         
         StoreEvents.bargainEvent.AddListener((KeyValuePair<int, int> bargain)=>{
             deposit -= bargain.Value;
-            setDeposit();
+            runner.variableStorage.SetValue("$deposit", deposit);
         });
     }
 
@@ -30,6 +30,7 @@ public class StoreDeposit : MonoBehaviour {
         for (int i = 0; i < storage.defaultVariables.Length; ++i) {
             if (storage.defaultVariables[i].name == "deposit") {
                 storage.defaultVariables[i].value = deposit.ToString();
+                Debug.Log(storage.defaultVariables[i].value);
                 break;
             }
         }

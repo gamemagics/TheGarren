@@ -3,7 +3,6 @@ using Yarn;
 using Yarn.Unity;
 using System.Collections.Generic;
 using Google.Protobuf.Collections;
-using System.Collections;
 using System;
 
 [AddComponentMenu("Scripts/Yarn Spinner/Static UI Runner")]
@@ -75,7 +74,12 @@ public class StaticUIRunner : MonoBehaviour {
                 csv.Read(); csv.ReadHeader();
 
                 while (csv.Read()) {
-                    texts.Add(csv.GetField("id"), csv.GetField("text"));
+                    var str = csv.GetField("text");
+                    
+                    str = str.Replace("\\r\\n", "\n");
+                    str = str.Replace("\\n", "\n");
+                    
+                    texts.Add(csv.GetField("id"), str);
                 }
             }
         }
